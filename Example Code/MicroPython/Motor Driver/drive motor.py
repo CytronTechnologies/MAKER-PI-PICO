@@ -1,3 +1,6 @@
+###  This example code uses: Maker Pi Pico ;; Reference: www.cytron.io/p-maker-pi-pico  
+###  This example code uses: Maker Drive   ;; Reference: WWW.cytron.io/p-maker-drive-simplifying-h-bridge-motor-driver-for-beginner
+
 from motor_driver import *         # import motor_driver library
 
 # Drive Motor
