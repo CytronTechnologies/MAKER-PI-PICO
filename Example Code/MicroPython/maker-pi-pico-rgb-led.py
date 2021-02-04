@@ -1,5 +1,5 @@
 # This example uses Maker Pi Pico
-# Reference: https:www.cytron.io/p-maker-pi-pico
+# Reference: https://www.cytron.io/p-maker-pi-pico
 # -----
 
 import array, time
