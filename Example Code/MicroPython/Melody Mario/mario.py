@@ -1,4 +1,4 @@
-##  This example code uses Maker Pi Pico. Reference: www.cytron.io/p-maker-pi-pico   ###
+###  This example code uses: Maker Pi Pico ;; Reference: www.cytron.io/p-maker-pi-pico
 
 import machine
 import utime
