@@ -1,9 +1,14 @@
+# This example uses Maker Pi Pico
+# Reference: https:www.cytron.io/p-maker-pi-pico
+# -----
+
 import array, time
 from machine import Pin
 import rp2
 from rp2 import PIO, StateMachine, asm_pio
 
-# Configure the number of WS2812 LEDs.
+# Configure the number of WS2812 LEDs
+# - There's 1x built-in RGB LED on Maker Pi Pico board
 NUM_LEDS = 1
 
 @asm_pio(sideset_init=PIO.OUT_LOW, out_shiftdir=PIO.SHIFT_LEFT,
@@ -19,7 +24,7 @@ def ws2812():
     label("do_zero")
     nop() .side(0) [T2 - 1]
 
-# Create the StateMachine with the ws2812 program, outputting on Pin(28).
+# Create the StateMachine with the ws2812 program, outputting on pin GP28 (Maker Pi Pico).
 sm = StateMachine(0, ws2812, freq=8000000, sideset_base=Pin(28))
 
 # Start the StateMachine, it will wait for data on its FIFO.
@@ -37,13 +42,13 @@ while True:
 
     print("red")
     for i in range(NUM_LEDS):
-        ar[i] = 255<<8
+        ar[i] = 255<<8          # shift 8 bits to the left
     sm.put(ar,8)
     time.sleep_ms(1000)
 
     print("green")
     for i in range(NUM_LEDS):
-        ar[i] = 255<<16
+        ar[i] = 255<<16         # shift 16 bits to the left
     sm.put(ar,8)
     time.sleep_ms(1000)
 
