@@ -336,7 +336,7 @@ def initialize_OLED():
         LED[7] = digitalio.DigitalInOut(board.GP7)
         LED[7].direction = digitalio.Direction.OUTPUT
         I2C = False
-
+        
 def deinitialize_OLED():
     global oled
     oled.show()
