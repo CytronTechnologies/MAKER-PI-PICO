@@ -1,4 +1,4 @@
-# Cytron Maker Pi Pico - Simplifying Raspberry Pi Pico for Beginner
+# Cytron Maker Pi Pico - Simplifying Raspberry Pi Pico for Beginners
 Resources/Example code for [Maker Pi Pico](https://www.cytron.io/p-maker-pi-pico) by Cytron Technologies.
 - [*Maker Pi Pico Datasheet*](https://docs.google.com/document/d/1JoHsZk5IipQPCLXWbZYpDKjGlnkyACOJ1taUrKVsRg8/edit?usp=sharing)
 
