@@ -110,19 +110,9 @@ tones = {
     'DS8': 4978,
 }
 
-
-
-# Initialize buttons
-button1 = digitalio.DigitalInOut(board.GP20)
-button1.switch_to_input(pull=digitalio.Pull.UP)
-button2 = digitalio.DigitalInOut(board.GP21)
-button2.switch_to_input(pull=digitalio.Pull.UP)
-button3 = digitalio.DigitalInOut(board.GP22)
-button3.switch_to_input(pull=digitalio.Pull.UP)
-
 # Initialize led pins
 LED = []
-pins = [board.GP0,board.GP1,board.GP2,board.GP3,board.GP4,board.GP5,board.GP6,board.GP7,board.GP8,board.GP9,board.GP10,board.GP11,board.GP12,board.GP13,board.GP14,board.GP15,board.GP16,board.GP17,board.GP19,board.GP25,board.GP26,board.GP27,board.GP28]
+pins = [board.GP0,board.GP1,board.GP2,board.GP3,board.GP4,board.GP5,board.GP6,board.GP7,board.GP8,board.GP9,board.GP10,board.GP11,board.GP12,board.GP13,board.GP14,board.GP15,board.GP16,board.GP17,board.GP19,board.GP20,board.GP21,board.GP22,board.GP25,board.GP26,board.GP27,board.GP28]
 
 for pin in pins:
     digout = digitalio.DigitalInOut(pin)
@@ -130,7 +120,7 @@ for pin in pins:
     LED.append(digout)
 
 # RGB Pin
-RGB = LED[22]
+RGB = LED[25]
 # RGB Colors
 pixel_off = bytearray([0, 0, 0])
 pixel_red = bytearray([0, 10, 0])
@@ -142,7 +132,7 @@ pixel_white = bytearray([10,10,10])
 buzzer = pwmio.PWMOut(board.GP18, variable_frequency=True)
 
 # Melody
-mario = ['E7', 'E7', '0', 'E7', '0', 'C7', 'E7', '0', 'G7', '0', '0', '0', 'G6', '0', '0', '0', 'C7', '0','0', 'G6', '0', '0', 'E6', '0', '0', 'A6', '0','B6', '0', 'AS6', 'A6', '0', 'G6', 'E7', '0', 'G7', 'A7', '0', 'F7', 'G7', '0', 'E7', '0','C7', 'D7', 'B6', '0', '0']
+mario = ['E7', 'E7', '0', 'E7', '0', 'C7', 'E7', '0', 'G7', '0', '0', '0', 'G6', '0', '0', '0', 'C7', '0','0', 'G6', '0', '0', 'E6', '0', '0', 'A6', '0','B6', '0', 'AS6', 'A6', '0', 'G6', 'E7', '0', 'G7', 'A7', '0', 'F7', 'G7', '0', 'E7', '0','C7', 'D7', 'B6', '0', '0','0','0','0']
 up = ['E4','D4','C4']
 
 # Global variables
@@ -169,6 +159,7 @@ def waiting_for_button(duration):
 
 # Startup code
 def startup():
+
     initialize_OLED()
     if I2C:
         oled.text('STARTUP CODE',30,10, 1)
@@ -176,24 +167,47 @@ def startup():
         oled.text('WITH MARIO MELODY',14,50, 1)
         deinitialize_OLED()
     x=0
-    for i in range(22):
+    for i in range(26):
         play_mario_tone(i)
-
-        LED[i].value = True
-        time.sleep(0.15)
-        LED[i].value = False
-
-
-    for i in range(22,-4,-1):
-        play_mario_tone(i+x)    
-        x +=2
-        if i >= 0:
+        
+        if i != 22:   # Exclude GP25
             LED[i].value = True
             time.sleep(0.15)
             LED[i].value = False
         else:
             time.sleep(0.15)
-            
+
+
+    for i in range(24,-1,-1):
+        play_mario_tone(i+x)    
+        x +=2
+        
+        if i != 22:   # Exclude GP25
+            if i >= 0:
+                LED[i].value = True
+                time.sleep(0.15)
+                LED[i].value = False
+            else:
+                time.sleep(0.15)
+        else:
+            time.sleep(0.15)
+    
+    #Deinitialize LED pins
+    LED[19].deinit()
+    LED[21].deinit()
+    LED[20].deinit()
+    
+    #Initialize button pins
+    global button1
+    global button2
+    global button3
+    button1 = digitalio.DigitalInOut(board.GP20)
+    button1.switch_to_input(pull=digitalio.Pull.UP)
+    button2 = digitalio.DigitalInOut(board.GP21)
+    button2.switch_to_input(pull=digitalio.Pull.UP)
+    button3 = digitalio.DigitalInOut(board.GP22)
+    button3.switch_to_input(pull=digitalio.Pull.UP)
+                
     initialize_OLED()
     if I2C:
         oled.text('GP20: CHECK LED',3,13, 1)
@@ -205,17 +219,31 @@ def startup():
 
 # Check leds
 def button1_handler():
-
+    
+    #Deinitialize button pins
+    global button1
+    global button2
+    global button3
+    button1.deinit()
+    button2.deinit()
+    button3.deinit()
+    
+    #Initialize LED pins
+    LED[19] = digitalio.DigitalInOut(board.GP20)
+    LED[19].direction = digitalio.Direction.OUTPUT
+    LED[20] = digitalio.DigitalInOut(board.GP21)
+    LED[20].direction = digitalio.Direction.OUTPUT
+    LED[21] = digitalio.DigitalInOut(board.GP22)
+    LED[21].direction = digitalio.Direction.OUTPUT
+    
     global button_pressed_flag
     if button_pressed_flag:
         initialize_OLED()
         if I2C:
             oled.text('GP20 PRESSED',30,10, 1)
-            oled.text('ALL LEDs TURNS ON',10,25, 1)
-            oled.text('EXCEPT',50,40, 1)
-            oled.text('GP18',55,55, 1)
+            oled.text('ALL LEDs TURNS ON',10,35, 1)
             deinitialize_OLED()
-        for i in range(23):
+        for i in range(26):
             LED[i].value = True  
         button_pressed_flag = False
         
@@ -223,11 +251,9 @@ def button1_handler():
         initialize_OLED()
         if I2C:
             oled.text('GP20 PRESSED',30,10, 1)
-            oled.text('ALL LEDs TURNS OFF',10,25, 1)
-            oled.text('EXCEPT',50,40, 1)
-            oled.text('GP20,GP21,GP22',20,55, 1)
+            oled.text('ALL LEDs TURNS OFF',10,35, 1)
             deinitialize_OLED()
-        for i in range(23):
+        for i in range(26):
             LED[i].value = False
         button_pressed_flag = True
         
@@ -236,6 +262,19 @@ def button1_handler():
         buzzer.duty_cycle = 19660
         time.sleep(0.15)
     buzzer.duty_cycle = 0
+    
+    #Deinitialize LED pins
+    LED[19].deinit()
+    LED[20].deinit()
+    LED[21].deinit()
+    
+    #Initialize button pins
+    button1 = digitalio.DigitalInOut(board.GP20)
+    button1.switch_to_input(pull=digitalio.Pull.UP)
+    button2 = digitalio.DigitalInOut(board.GP21)
+    button2.switch_to_input(pull=digitalio.Pull.UP)
+    button3 = digitalio.DigitalInOut(board.GP22)
+    button3.switch_to_input(pull=digitalio.Pull.UP)
     
 # Check audio and RGB
 def button2_handler():
@@ -278,6 +317,7 @@ def button2_handler():
     LED[18] = digitalio.DigitalInOut(board.GP19)
     LED[18].direction = digitalio.Direction.OUTPUT
     buzzer = pwmio.PWMOut(board.GP18, variable_frequency=True)
+   # pass
 
 # Check SD Card and demo code 
 def button3_handler():
@@ -311,6 +351,7 @@ def button3_handler():
         neopixel_write(RGB,bytearray([8-i,8-i,8-i]))
         play_mario_tone(i+40)
         time.sleep(delay1)
+   # pass
 
 def play_mario_tone(notes):
     if mario[notes] == '0':
@@ -336,7 +377,7 @@ def initialize_OLED():
         LED[7] = digitalio.DigitalInOut(board.GP7)
         LED[7].direction = digitalio.Direction.OUTPUT
         I2C = False
-        
+
 def deinitialize_OLED():
     global oled
     oled.show()
@@ -436,3 +477,4 @@ while True:
         button3_handler()
         waiting_for_button(0.2)
         button3_pressed = False
+
