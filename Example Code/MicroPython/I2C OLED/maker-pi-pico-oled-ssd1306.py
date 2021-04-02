@@ -7,7 +7,7 @@ import utime
 WIDTH  = 128                                            # oled display width
 HEIGHT = 64                                            # oled display height
 
-i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=200000)       # Init I2C using pins GP8 & GP9 (default I2C0 pins)
+i2c = I2C(0, scl=Pin(1), sda=Pin(0), freq=200000)       # Init I2C using pins GP0 & GP1 (I2C0 pins)
 print("I2C Address      : "+hex(i2c.scan()[0]).upper()) # Display device address
 print("I2C Configuration: "+str(i2c))                   # Display I2C config
 
@@ -21,15 +21,17 @@ buffer = bytearray(b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00|?\x00\
 fb = framebuf.FrameBuffer(buffer, 32, 32, framebuf.MONO_HLSB)
 
 while True:
-    # Clear the oled display in case it has junk on it.
+    # Clear the oled display.
     oled.fill(0)
 
-    # Blit the image from the framebuffer to the oled display
+    # Blit the RPi image from the framebuffer to the oled display
     oled.blit(fb, 50, 20)
+    
+    # Update the oled display so the image & text is displayed
     oled.show()
     utime.sleep(3)
     
-    # Clear the oled display in case it has junk on it.
+    # Clear the oled display.
     oled.fill(0)
 
     # Add some text
@@ -39,6 +41,6 @@ while True:
     oled.text("   RPi Pico",0,40)
     oled.text(" for Beginners",0,50)
     
-    # Finally update the oled display so the image & text is displayed
+    # Update the oled display so the image & text is displayed
     oled.show()
     utime.sleep(5)
