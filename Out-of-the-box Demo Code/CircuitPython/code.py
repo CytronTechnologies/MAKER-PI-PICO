@@ -1,5 +1,6 @@
 # Test and Demo code for Maker Pi Pico
-# Reference: https://my.cytron.io/p-maker-pi-pico
+# Reference: https://my.cytron.io/p-maker-pi-pico, https://my.cytron.io/p-grove-oled-display-0p96-inch-ssd1315
+# OLED Pinout : GP6 - SDA, GP7 - SCL
 # Installing CircuitPython - https://learn.adafruit.com/getting-started-with-raspberry-pi-pico-circuitpython/circuitpython
 # Audio track credit: jeremy80 - L-R Tone Level Test @ -6 db max w/3 Sec. Countdown Leader
 # Audio track reference: https://freesound.org/people/jeremy80/sounds/230639/
