@@ -1,3 +1,5 @@
+###  This example code uses: I2C 1602 Serial LCD ;; Reference: https://my.cytron.io/p-i2c-1602-serial-lcd-for-arduino-and-rpi  
+
 import machine
 import utime
 
