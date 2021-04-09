@@ -1,4 +1,5 @@
-###  This example code uses: I2C 1602 Serial LCD ;; Reference: https://my.cytron.io/p-i2c-1602-serial-lcd-for-arduino-and-rpi  
+###  This example code uses: 3V3 I2C and SPI 1602 Serial Character LCD ;; Reference: https://my.cytron.io/p-3v3-i2c-and-spi-1602-serial-character-lcd
+###  Make sure your LCD is 3.3V compatible
 
 import machine
 import utime
