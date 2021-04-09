@@ -1,3 +1,5 @@
+###  This example code uses: 3V-5.5V SR04P Ultrasonic Ranging Module ;; Reference: https://my.cytron.io/p-3v-5.5v-ultrasonic-ranging-module
+
 from machine import Pin
 import utime
 
