@@ -1,3 +1,6 @@
+###  This example code uses: 3V3 I2C and SPI 1602 Serial Character LCD ;; Reference: https://my.cytron.io/p-3v3-i2c-and-spi-1602-serial-character-lcd
+###  Make sure your LCD is 3.3V compatible
+
 from LCD_SPI import *    #import LCD_SPI library
 
 # SPI LCD Display
