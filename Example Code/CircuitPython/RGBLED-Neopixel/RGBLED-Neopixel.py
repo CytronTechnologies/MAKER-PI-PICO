@@ -1,3 +1,5 @@
+###  This example code uses: Maker Pi Pico ;; Reference: www.cytron.io/p-maker-pi-pico
+
 """CircuitPython Essentials NeoPixel example"""
 import time
 import board
