@@ -2,7 +2,7 @@ import machine
 import utime
 
 class motor_driver():
-    def __init__(self,M1A,M1B,M2A,M2B):
+    def __init__(self,M1A,M1B,M2A,M2B):  # Intialize motor driver
         
         self.M1A = machine.PWM(machine.Pin(M1A))
         self.M1B = machine.PWM(machine.Pin(M1B))
