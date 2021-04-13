@@ -33,7 +33,7 @@ _8BITMODE             = 0x10
 _4BITMODE             = 0x00
 
 class LCD:
-    def __init__(self,sck,tx,cs):
+    def __init__(self,sck,tx,cs):  # Initialize LCD
         
         self.column = 0
         self.row = 0
@@ -49,6 +49,7 @@ class LCD:
         
         self.CS.value(1)
         
+        # Cofigure SPI ports
         if sck == 10 or sck == 14:
             _rx = machine.Pin(12)
             self.spi=machine.SPI(1,baudrate=1000000,polarity = 0,phase = 0,bits=8,sck=_sck, mosi=_tx, miso=_rx)
@@ -64,8 +65,8 @@ class LCD:
         self.clear()
         self._command(ENTRYMODESET | ENTRYLEFT | ENTRYSHIFTDECREMENT)      
         self.set_cursor(0,0)
-        
-    def on(self, cursor=False, blink=False):
+         
+    def on(self, cursor=False, blink=False):  # Initialize LCD with or without cursor and blink 
         if cursor == False and blink == False:
             self._command(DISPLAYCONTROL | DISPLAYON | CURSOROFF | BLINKOFF)
         elif cursor == False and blink == True:
