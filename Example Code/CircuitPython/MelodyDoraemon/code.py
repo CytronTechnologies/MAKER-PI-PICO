@@ -1,3 +1,4 @@
+###  This example code uses: Maker Pi Pico ;; Reference: www.cytron.io/p-maker-pi-pico
 
 from board import *
 from time import *
@@ -8,13 +9,16 @@ import digitalio
 
 sleep(1)
 
+# Pixel colours
 pixel_off = bytearray([0, 0, 0])
 pixel_red = bytearray([0, 10, 0])
 pixel_green = bytearray([10, 0, 0])
 pixel_blue = bytearray([0, 0, 10])
 
+# Configure pin
 pin = digitalio.DigitalInOut(GP28)
 pin.direction = digitalio.Direction.OUTPUT
+
 neopixel_write(pin, pixel_green)
 
 sleep(1)
