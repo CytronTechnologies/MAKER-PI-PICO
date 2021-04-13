@@ -9,7 +9,7 @@ import utime
 Trig = machine.Pin(6,machine.Pin.OUT)   # Connect Trig pin to pin 6 and set to OUTPUT
 Echo = machine.Pin(7,machine.Pin.IN)    # Connect Echo pin to pin 7 and set to INPUT
 
-def read_ultrasonic():
+def read_ultrasonic():  # Read ultrasonic function
     
     Trig.value(0)                       
     utime.sleep_us(2)
