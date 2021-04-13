@@ -1,3 +1,6 @@
+###  This example code uses: Maker Pi Pico ;; Reference: www.cytron.io/p-maker-pi-pico
+### This example code uses: Grove - OLED Display 0.96 inch - SSD1315 ;; Reference: www.cytron.io/p-grove-oled-display-0p96-inch-ssd1315
+
 import board
 from analogio import AnalogIn
 import busio as io
