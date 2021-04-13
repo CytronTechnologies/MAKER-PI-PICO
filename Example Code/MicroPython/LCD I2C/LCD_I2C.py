@@ -32,8 +32,8 @@ _2LINE               = 0x08
 _8BITMODE            = 0x10
 _4BITMODE            = 0x00
 
-class LCD:
-    def __init__(self, sda, scl):
+class LCD:  
+    def __init__(self, sda, scl):  # Intialize LCD
         
         self.column = 0
         self.row = 0
@@ -45,6 +45,7 @@ class LCD:
         _sda = machine.Pin(sda)
         _scl = machine.Pin(scl)
         
+        # Configure I2C ports
         if scl == 3 or scl == 7 or scl == 11 or scl == 15 or scl == 19 or scl == 27:
             self.i2c=machine.I2C(1, sda=_sda, scl=_scl, freq=400000)
         else:
@@ -63,7 +64,7 @@ class LCD:
         
         self.set_cursor(0, 0)
         
-    def on(self, cursor=False, blink=False):
+    def on(self, cursor=False, blink=False):  # Initialize LCD with ot without cursor and blink
         if cursor == False and blink == False:
             self._command(DISPLAYCONTROL | DISPLAYON | CURSOROFF | BLINKOFF)
         elif cursor == False and blink == True:
