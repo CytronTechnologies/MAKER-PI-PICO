@@ -276,6 +276,7 @@ def button1_handler():
     button2.switch_to_input(pull=digitalio.Pull.UP)
     button3 = digitalio.DigitalInOut(board.GP22)
     button3.switch_to_input(pull=digitalio.Pull.UP)
+    time.sleep(0.5)
     
 # Check audio and RGB
 def button2_handler():
