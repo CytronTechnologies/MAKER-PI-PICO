@@ -47,6 +47,7 @@ led.direction = digitalio.Direction.OUTPUT
 
 button = digitalio.DigitalInOut(board.GP20)
 button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
 
 # Initialize UART connection to the ESP8266 WiFi Module.
 RX = board.GP17
@@ -69,6 +70,7 @@ while True:
             esp.connect(secrets)
         
         # Reading Blynk virtual pin V0.
+        # V0 can be assigned to Button Widget on Blynk App.
         pin = "V0"
         get_url = API_URL + "/" + secrets["blynk_auth_token"] + "/get/" + pin
         r = requests.get(get_url)
@@ -80,8 +82,14 @@ while True:
             print("V0:", value_v0)
             
         # Writting Blynk virtual pin V1.
+        # Sending value 255 if button is pressed, 0 otherwise.
+        # Can use LED widget on Blynk App to show the value.
         pin = "V1"
-        value = not button.value  # Button is active low.
+        if not button.value:
+            # Button pressed.
+            value = 255
+        else:
+            value = 0
         get_url = API_URL + "/" + secrets["blynk_auth_token"] + "/update/" + pin + "?value=" + str(value)
         r = requests.get(get_url)
 
