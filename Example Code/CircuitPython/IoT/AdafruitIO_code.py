@@ -55,7 +55,7 @@ esp = adafruit_espatcontrol.ESP_ATcontrol(uart, 115200, debug=False)
 
 wifi = adafruit_espatcontrol_wifimanager.ESPAT_WiFiManager(esp, secrets)
 
-# Initialize LED and button.
+# Initialize on-board LED.
 led = digitalio.DigitalInOut(board.GP25)
 led.direction = digitalio.Direction.OUTPUT
 
