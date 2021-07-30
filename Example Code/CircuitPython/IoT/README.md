@@ -10,8 +10,10 @@ This folder shows a few examples for IoT applications.
 
 ## Dependencies:
 We've already included the following dependencies in the lib folder:
-- adafruit_requests
 - adafruit_espatcontrol
+- adafruit_requests.mpy
+- adafruit_minimqtt
+- adafruit_io
 
 For latest version, you may download it from https://circuitpython.org/libraries
 
