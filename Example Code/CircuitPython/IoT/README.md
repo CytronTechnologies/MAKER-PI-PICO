@@ -33,3 +33,19 @@ This example does two things:
 
 This example requires the ssid, password and blynk_auth_token to be specified in the secrets.py.<br>
 Follow [this video](https://youtu.be/UBQCaxfeBKY?t=93) to learn how to setup the Blynk app and get your auth token (Please ignore the part about Arduino IDE).
+
+### Simple Test
+Scan for available WiFi AP, connect to the speicifed AP and ping the Google DNS (8.8.8.8).<br>
+This is modified from Adafruit's esp_atcontrol_simpletest.py.<br>
+<br>
+This example requires the ssid and password to be specified in the secrets.py.
+
+### Telegram
+Send a message to the Telegram via Telegram Bot.<br>
+<br>
+This example requires the ssid, password, telegram_bot_token and telegram_chat_id to be specified in the secrets.py.<br>
+\* Follow [here](https://core.telegram.org/bots#6-botfather) or [this video](https://youtu.be/dqk77sUgZKs?t=36) to learn how to create a telegram bot and get your telegram_bot_token.<br>
+\* To get your chat ID, send a private message to your newly created bot, or add your bot to a group and send a message to that group, then use [this tool](https://sean-bradley.medium.com/get-telegram-chat-id-80b575520659) to get your chat ID.
+
+
+
