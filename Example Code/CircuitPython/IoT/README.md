@@ -47,5 +47,9 @@ This example requires the ssid, password, telegram_bot_token and telegram_chat_i
 \* Follow [here](https://core.telegram.org/bots#6-botfather) or [this video](https://youtu.be/dqk77sUgZKs?t=36) to learn how to create a telegram bot and get your telegram_bot_token.<br>
 \* To get your chat ID, send a private message to your newly created bot, or add your bot to a group and send a message to that group, then use [this tool](https://sean-bradley.medium.com/get-telegram-chat-id-80b575520659) to get your chat ID.
 
-
-
+### Thingspeak
+Send the value of a counter to Thingspeak every 20 seconds.<br>
+The counter value increase by one every iteration.<br>
+<br>
+This example requires the ssid, password and thingspeak_write_api_key to be specified in the secrets.py.<br>
+Follow [this tutorial (Under "CONNECTING TO WEB SERVICES")](https://tutorial.cytron.io/2016/12/16/thingspeak-store-display-digital-compass-data-web-services-espresso-lite-v2-0/) on how to get the Thingspeak Write API Key.
