@@ -26,8 +26,14 @@ For latest version, you may download it from https://circuitpython.org/libraries
 3. Make sure the UART pins are defined correctly in the example code according to your hardware.
 
 ## Examples:
+### Adafruit IO
+1. Control on-board LED through "led" feed.
+2. Reads Pico internal CPU temperature and sends it to Adafruit IO through "temperature" feed.
+
+This example requires the ssid, password, aio_username and aio_key to be specified in the secrets.py.<br>
+Refer [here](https://learn.adafruit.com/quickstart-rp2040-pico-with-wifi-and-circuitpython/usage-with-adafruit-io) to learn how to setup the Adafruit IO.
+
 ### Blynk
-This example does two things:
 1. Control LED GP0 on Maker Pi Pico using the Button Widget in the Blynk App via virtual pin V0.
 2. Use the Button GP20 on Maker Pi Pico to control the LED Widget in the Blynk App via virtual pin V1.
 
