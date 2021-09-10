@@ -1,5 +1,7 @@
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
+#
+# Rename this file to code.py in your CIRCUITPY drive if you wish to run it on power up.
 
 import time
 import board
