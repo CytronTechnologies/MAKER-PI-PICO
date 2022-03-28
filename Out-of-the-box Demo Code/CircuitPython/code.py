@@ -435,8 +435,8 @@ def check_SDCARD():
                     buzzer.duty_cycle = 0 
                     time.sleep(2)
         storage.umount(vfs)
-        spi.deinit()
         sd.deinit()
+        spi.deinit()
     except:
         if I2C:
             oled.text('GP22 PRESSED',30,10, 1)
