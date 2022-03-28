@@ -113,7 +113,8 @@ tones = {
 
 # Initialize led pins
 LED = []
-pins = [board.GP0,board.GP1,board.GP2,board.GP3,board.GP4,board.GP5,board.GP6,board.GP7,board.GP8,board.GP9,board.GP10,board.GP11,board.GP12,board.GP13,board.GP14,board.GP15,board.GP16,board.GP17,board.GP19,board.GP20,board.GP21,board.GP22,board.GP25,board.GP26,board.GP27,board.GP28]
+pins = [board.GP0,board.GP1,board.GP2,board.GP3,board.GP4,board.GP5,board.GP6,board.GP7,board.GP8,board.GP9,board.GP10,board.GP11,board.GP12,board.GP13,
+        board.GP14,board.GP15,board.GP16,board.GP17,board.GP19,board.GP20,board.GP21,board.GP22,board.GP25,board.GP26,board.GP27,board.GP28]
 
 for pin in pins:
     digout = digitalio.DigitalInOut(pin)
@@ -133,7 +134,8 @@ pixel_white = bytearray([10,10,10])
 buzzer = pwmio.PWMOut(board.GP18, variable_frequency=True)
 
 # Melody
-mario = ['E7', 'E7', '0', 'E7', '0', 'C7', 'E7', '0', 'G7', '0', '0', '0', 'G6', '0', '0', '0', 'C7', '0','0', 'G6', '0', '0', 'E6', '0', '0', 'A6', '0','B6', '0', 'AS6', 'A6', '0', 'G6', 'E7', '0', 'G7', 'A7', '0', 'F7', 'G7', '0', 'E7', '0','C7', 'D7', 'B6', '0', '0','0','0','0']
+mario = ['E7', 'E7', '0', 'E7', '0', 'C7', 'E7', '0', 'G7', '0', '0', '0', 'G6', '0', '0', '0', 'C7', '0','0', 'G6', '0', '0', 'E6', '0', '0', 'A6', '0',
+         'B6', '0', 'AS6', 'A6', '0', 'G6', 'E7', '0', 'G7', 'A7', '0', 'F7', 'G7', '0', 'E7', '0','C7', 'D7', 'B6', '0', '0','0','0','0']
 up = ['E4','D4','C4']
 
 # Global variables
@@ -287,7 +289,7 @@ def button2_handler():
     LR_FILENAME = "L-R.wav"
     data = open(LR_FILENAME, "rb")
     wav = audiocore.WaveFile(data)
-    dac = audiopwmio.PWMAudioOut(board.GP18,right_channel=board.GP19)
+    dac = audiopwmio.PWMAudioOut(left_channel=board.GP18,right_channel=board.GP19)
     initialize_OLED()
     if I2C:
         oled.text('GP21 PRESSED',30,10, 1)
@@ -319,7 +321,7 @@ def button2_handler():
     LED[18] = digitalio.DigitalInOut(board.GP19)
     LED[18].direction = digitalio.Direction.OUTPUT
     buzzer = pwmio.PWMOut(board.GP18, variable_frequency=True)
-   # pass
+    # pass
 
 # Check SD Card and demo code 
 def button3_handler():
@@ -353,7 +355,9 @@ def button3_handler():
         neopixel_write(RGB,bytearray([8-i,8-i,8-i]))
         play_mario_tone(i+40)
         time.sleep(delay1)
-   # pass
+        
+    neopixel_write(RGB, pixel_off)
+    # pass
 
 def play_mario_tone(notes):
     if mario[notes] == '0':
@@ -393,7 +397,6 @@ def deinitialize_OLED():
 def check_SDCARD():
     
     initialize_OLED()
-    
         
     LED[10].deinit()
     LED[11].deinit()
@@ -419,7 +422,9 @@ def check_SDCARD():
                         buzzer.frequency = tones[i]
                         buzzer.duty_cycle = 19660
                         time.sleep(0.15)
+                        
                     buzzer.duty_cycle = 0
+                    
                     if I2C:
                         oled.text('GP22 PRESSED',30,20, 1)
                         oled.text('SD CARD TEST: PASS',7,40, 1)
@@ -429,14 +434,20 @@ def check_SDCARD():
                         oled.text('GP22 PRESSED',30,10, 1)
                         oled.text('SD CARD TEST: FAILED',5,25, 1)
                         oled.text('WRONG DATA',33,40, 1)
+                    
                     buzzer.frequency = 1661
                     buzzer.duty_cycle = 19660
-                    time.sleep(2)
-                    buzzer.duty_cycle = 0 
-                    time.sleep(2)
+                    time.sleep(0.2)
+                    buzzer.duty_cycle = 0
+                    time.sleep(0.1)
+                    buzzer.duty_cycle = 19660
+                    time.sleep(0.5)
+                    buzzer.duty_cycle = 0
+                    
         storage.umount(vfs)
         sd.deinit()
         spi.deinit()
+        
     except:
         if I2C:
             oled.text('GP22 PRESSED',30,10, 1)
@@ -445,9 +456,15 @@ def check_SDCARD():
 
         buzzer.frequency = 1661
         buzzer.duty_cycle = 19660
-        time.sleep(2)
+        time.sleep(0.2)
+        buzzer.duty_cycle = 0 
+        time.sleep(0.1)
+        buzzer.duty_cycle = 19660
+        time.sleep(0.5)
         buzzer.duty_cycle = 0
+        
         spi.deinit()
+        
     if I2C:
         deinitialize_OLED()
         
@@ -459,7 +476,10 @@ def check_SDCARD():
     LED[12].direction = digitalio.Direction.OUTPUT
     LED[15] = digitalio.DigitalInOut(board.GP15)
     LED[15].direction = digitalio.Direction.OUTPUT
-
+    
+    time.sleep(0.5)
+    
+    
 startup()
 
 while True:
