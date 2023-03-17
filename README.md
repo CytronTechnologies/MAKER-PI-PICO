@@ -32,7 +32,7 @@ If you want a guidance on how to use the code for Maker Pi Pico, here some tutor
 * [Read and Display Environment Sensor Data Using Raspberry Pi Pico and Circuitpython](https://cytron.io/tutorial/read-and-display-environment-sensor-data-using-raspberry-pi-pico-and-circuitpython)  
 * [Metronome Maker Pi Pico, Programmed With Circuitpython](https://cytron.io/tutorial/metronome-maker-pi-pico-programmed-with-circuitpython)  
 * [Display COVID-19 Data Using Maker Pi Pico and Circuitpython](https://cytron.io/tutorial/display-covid-19-data-using-maker-pi-pico-and-circuitpython)  
-* [Ultrasonic Hc-SR04P Using Raspberry Pi Pico](https://cytron.io/tutorial/ultrasonic-hc-sr04p-using-raspberry-pi-pico)  
+* [Ultrasonic HC-SR04P Using Raspberry Pi Pico](https://cytron.io/tutorial/ultrasonic-hc-sr04p-using-raspberry-pi-pico)  
 
 ## Documentation  
 For more information on the Maker Pi Pico, check out the datasheet here:
