@@ -6,6 +6,9 @@ Resources/Example code for [Maker Pi Pico](https://www.cytron.io/p-maker-pi-pico
 
 ![Image of Maker Pi Pico](https://github.com/CytronTechnologies/MAKER-PI-PICO/blob/main/icon.png)
 
+## Pinout Diagram
+![Image of Maker Pi Pico Pinout Diagram](https://github.com/CytronTechnologies/MAKER-PI-PICO/blob/main/MakerPiPico-Pinout.png)
+
 ## What's Raspberry Pi Pico?  
 [Raspberry Pi Pico](https://www.raspberrypi.org/documentation/pico/getting-started/) is the first microcontroller board from Raspberry Pi Foundation, especially designed for physical computing. It can be programmed with MicroPython and C/C++ to control things in our real world.  
 
