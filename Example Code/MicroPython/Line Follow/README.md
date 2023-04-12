@@ -20,4 +20,6 @@ The connections between Maker Pi Pico, Maker Line, Maker Drive for this code is 
 | GP4           |            |M1A          |
 | GP5           |            |M1B          |
 
+Connect the VB+ and VB- on the Maker Drive with external battery or power supply in range 2.5V-9.5V.
+
 For more details tutorial you can visit this link on how to [Building Line Following Robot using Maker Pi Pico, Maker Drive and Maker Line](https://cytron.io/tutorial/building-line-following-robot-using-maker-pi-pico-maker-drive-and-maker-line?r=1). 
