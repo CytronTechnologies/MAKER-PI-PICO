@@ -1,6 +1,6 @@
 # Connection  
 
-The connections between Maker Pi Pico and [Grove - Temperature & Humidity Sensor (DHT11)](https://cytron.io/p-grove-temperature-and-humidity-sensor-dht11) for this code is as table and figure below:
+The connections between [Maker Pi Pico](https://cytron.io/p-maker-pi-pico-simplifying-raspberry-pi-pico-for-beginners-and-kits) and [Grove - Temperature & Humidity Sensor (DHT11)](https://cytron.io/p-grove-temperature-and-humidity-sensor-dht11) for this code is as table and figure below:
 | Maker Pi Pico GROVE 3  | Temperature & Humidity Sensor (DHT11) |
 | ------------- | ------------- |
 | GND  | GND  |
