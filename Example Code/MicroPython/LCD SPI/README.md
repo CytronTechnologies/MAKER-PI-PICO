@@ -1,3 +1,4 @@
+# LCD SPI 
 This code will display simple string character to [3V3 I2C and SPI 1602 Serial Character LCD](https://cytron.io/p-3v3-i2c-and-spi-1602-serial-character-lcd) through SPI.
 
 # Connection  
