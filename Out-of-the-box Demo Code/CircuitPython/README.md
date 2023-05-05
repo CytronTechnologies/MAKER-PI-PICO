@@ -1,3 +1,5 @@
+# Out-of-the-box Demo Code
+
 This code make [Maker Pi Pico](https://cytron.io/p-maker-pi-pico-simplifying-raspberry-pi-pico-for-beginners-and-kits) to:   
 
 * Play Mario tone and initialize OLED on the startup.  
