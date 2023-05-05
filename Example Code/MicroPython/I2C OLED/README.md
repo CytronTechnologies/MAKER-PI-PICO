@@ -1,3 +1,4 @@
+# I2C OLED
 This code will display Raspberry Pi logo and some text on the [SSD1306 OLED display](https://cytron.io/p-oled-i2c-0.96inch-128x64-blue-display).  
 
 # Connection  
