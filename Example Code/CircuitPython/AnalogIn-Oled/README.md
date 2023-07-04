@@ -8,8 +8,8 @@ The connections between [Maker Pi Pico](https://cytron.io/p-maker-pi-pico-simpli
 | ------------- | ------------- |
 | GND  | GND  |
 | 3V3  | VCC  |
-| SDA  | GP0  |
-| SCL  | GP1  |
+| GP0  | SDA  |
+| GP1  | SCL  |
 
 You are free to change to other GROVE Port you desire, but remember to update the changes on your code.
 
