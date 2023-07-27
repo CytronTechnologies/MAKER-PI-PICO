@@ -7,7 +7,7 @@ This code make [Maker Pi Pico](https://cytron.io/p-maker-pi-pico-simplifying-ras
 * Press Button 2(GP21) to check the left and right on the Audio Jack Output and RGB.
 * Press Button 3(GP22) to check SD Card and demo code(run RGB and play Mario tone).
 
-Make sure to [install CicuitPython](https://learn.adafruit.com/getting-started-with-raspberry-pi-pico-circuitpython/circuitpython) on the Raspberry Pi Pico / Pico W.
+Make sure to [install CircuitPython](https://learn.adafruit.com/getting-started-with-raspberry-pi-pico-circuitpython/circuitpython) on the Raspberry Pi Pico / Pico W.
 
 # Connection  
 
